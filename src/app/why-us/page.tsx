@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import gal_photo from '../public/images/gal_32.jpg'
 
 const PROCESS_STEPS = [
   {

@@ -3,32 +3,55 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
-const projects = [
-  {
-    id: 1,
-    title: 'The Kensington Residence',
-    category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 2,
-    title: 'Aura Boutique Hotel',
-    category: 'Hospitality',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 3,
-    title: 'Lumina Penthouse',
-    category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80',
-  },
-];
+type PreviewImage = {
+  id: string;
+  url: string;
+  fileName: string;
+};
+
+const PREVIEW_COUNT = 6;
 
 export function PortfolioPreview() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [images, setImages] = useState<PreviewImage[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPreviewImages = async () => {
+      try {
+        // Fetch a small set of images, skipping videos, ordered by position
+        const q = query(
+          collection(db, 'portfolio'),
+          orderBy('order', 'asc'),
+          limit(30) // Fetch more than we need so we can filter out videos
+        );
+        const snapshot = await getDocs(q);
+        
+        const allImages = snapshot.docs.map(doc => ({
+          id: doc.id,
+          url: doc.data().url,
+          fileName: doc.data().fileName,
+        }));
+
+        // Filter to only actual images (no .mp4), take PREVIEW_COUNT
+        const photoOnly = allImages.filter(
+          img => !img.fileName.toLowerCase().endsWith('.mp4')
+        );
+        setImages(photoOnly.slice(0, PREVIEW_COUNT));
+      } catch (error) {
+        console.error('Error fetching preview images:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPreviewImages();
+  }, []);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
@@ -85,50 +108,48 @@ export function PortfolioPreview() {
       </div>
 
       {/* The Horizontal Cinematic Scroll */}
-      <div
-        ref={scrollRef}
-        onScroll={handleScroll}
-        className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 px-6 lg:px-12 pb-4 w-full"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="flex-none w-[85vw] sm:w-[450px] md:w-[500px] snap-center group cursor-pointer flex flex-col gap-6"
-          >
-            {/* The Image Box */}
-            <div className="relative w-full aspect-3/4 overflow-hidden rounded-md cursor-none">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 450px, 500px"
-                priority={index < 2}
-              />
-              {/* Extremely subtle dark tint on hover to focus the eye */}
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
+      {loading ? (
+        // Skeleton while loading
+        <div className="flex gap-6 md:gap-8 px-6 lg:px-12 pb-4 w-full overflow-hidden">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="flex-none w-[85vw] sm:w-[450px] md:w-[500px] flex flex-col gap-6">
+              <div className="relative w-full aspect-3/4 overflow-hidden rounded-md bg-neutral-100/80 animate-pulse" />
             </div>
-
-            {/* The Text Box (Outside the image) */}
-            <div className="flex flex-col gap-3 px-2">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-6 bg-[#D95D39] transition-all duration-500 group-hover:w-10" />
-                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D95D39]">
-                  {project.category}
-                </p>
+          ))}
+        </div>
+      ) : (
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 px-6 lg:px-12 pb-4 w-full"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {images.map((image, index) => (
+            <motion.div
+              key={image.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="flex-none w-[85vw] sm:w-[450px] md:w-[500px] snap-center group cursor-pointer flex flex-col gap-6"
+            >
+              {/* The Image Box */}
+              <div className="relative w-full aspect-3/4 overflow-hidden rounded-md cursor-none">
+                <Image
+                  src={image.url}
+                  alt={`Portfolio work ${index + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 85vw, (max-width: 1024px) 450px, 500px"
+                  priority={index < 2}
+                />
+                {/* Extremely subtle dark tint on hover to focus the eye */}
+                <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-light tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-gray-500">
-                {project.title}
-              </h3>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       {/* Editorial Footer: Indicators & Link */}
       <div className="mt-8 px-6 lg:px-12 flex items-center justify-between w-full">
@@ -140,10 +161,10 @@ export function PortfolioPreview() {
             {/* Active progress line overlay */}
             <span
               className="absolute top-0 left-0 h-px bg-[#D95D39] transition-all duration-300"
-              style={{ width: `${((activeIndex + 1) / projects.length) * 100}%` }}
+              style={{ width: `${((activeIndex + 1) / Math.max(images.length, 1)) * 100}%` }}
             />
           </span>
-          <span>{projects.length.toString().padStart(2, '0')}</span>
+          <span>{Math.max(images.length, 1).toString().padStart(2, '0')}</span>
         </div>
 
         {/* Minimalist Explore Link */}

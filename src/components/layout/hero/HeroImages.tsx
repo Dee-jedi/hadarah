@@ -2,12 +2,14 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import lan1 from '../../../../public/images/gal_32.jpg';
+import lan2 from '../../../../public/images/gal_1.jpg';
 
 const SHAPES = [
   {
     // The Arch (Center Left)
     id: 'arch',
-    src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80',
+    src: lan1,
     alt: 'Architectural details',
     className: 'absolute left-[5%] sm:left-[10%] top-[10%] sm:top-[15%] w-[50%] sm:w-[45%] aspect-[2/3] rounded-t-full rounded-b-2xl',
     floatDelay: 0,
@@ -25,7 +27,7 @@ const SHAPES = [
   {
     // The Pill (Bottom Right)
     id: 'pill',
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80',
+    src: lan2,
     alt: 'Texture and material',
     className: 'absolute right-[15%] sm:right-[25%] bottom-[5%] w-[35%] sm:w-[30%] aspect-[1/2] rounded-full',
     floatDelay: 3,

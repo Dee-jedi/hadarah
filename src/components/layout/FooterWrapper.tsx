@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 export function FooterWrapper() {
   const pathname = usePathname();
   
-  if (pathname === '/contact') {
+  if (pathname === '/contact' || pathname === '/portfolio') {
     return null;
   }
   

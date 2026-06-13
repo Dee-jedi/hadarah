@@ -19,6 +19,16 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-marquee: marquee 30s linear infinite;
+  --animate-shimmer: shimmer 2s infinite linear;
+  
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
   
   @keyframes marquee {
     from {

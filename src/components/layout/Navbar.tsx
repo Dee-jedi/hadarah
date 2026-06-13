@@ -9,8 +9,9 @@ const navLinks = [
   { name: 'Home', href: '/' },
 
   { name: 'Why Us', href: '/why-us' },
-  { name: 'Services', href: '/services' },
+
   { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Services', href: '/services' },
 ];
 
 export function Navbar() {
@@ -30,13 +31,18 @@ export function Navbar() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [mobileMenuOpen]);
+
+  const isDarkHero = (pathname === '/why-us' || pathname === '/services') && !scrolled;
 
   return (
     <>
@@ -47,11 +53,11 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2 group">
-            <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12 ${pathname === '/why-us' && !scrolled ? 'bg-white' : 'bg-[#111111]'}`}>
+            <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12 ${pathname === '/why-us' && !scrolled ? 'bg-white' : 'bg-[#D95D39]'}`}>
               <span className={`font-bold text-xl leading-none ${pathname === '/why-us' && !scrolled ? 'text-[#111111]' : 'text-white'}`}>H</span>
             </div>
-            <span className={`font-bold text-xl tracking-wide transition-colors ${pathname === '/why-us' && !scrolled ? 'text-white' : 'text-[#111111]'}`}>
-              Hadarah<span className="text-[#D95D39]">.</span>
+            <span className={`font-bold text-xl tracking-wide transition-colors ${isDarkHero ? 'text-white' : 'text-[#111111]'}`}>
+              Hadarah.
             </span>
           </Link>
 
@@ -59,7 +65,6 @@ export function Navbar() {
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-              const isDarkHero = pathname === '/why-us' && !scrolled;
 
               let textColorClass = 'text-gray-600 hover:text-[#D95D39]';
               if (isActive) textColorClass = 'text-[#D95D39]';
@@ -139,11 +144,11 @@ export function Navbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between mb-12">
                 <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
-                  <div className="w-8 h-8 bg-[#111111] flex items-center justify-center rounded-sm">
+                  <div className="w-8 h-8 bg-[#D95D39] flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12">
                     <span className="text-white font-bold text-xl leading-none">H</span>
                   </div>
                   <span className="text-[#111111] font-bold text-xl tracking-wide">
-                    Hadarah<span className="text-[#D95D39]">.</span>
+                    Hadarah.
                   </span>
                 </Link>
 
@@ -176,13 +181,13 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group flex items-center justify-center text-lg font-medium text-white bg-[#111111] px-6 py-4 rounded-full transition-all hover:bg-black shadow-md hover:shadow-xl hover:-translate-y-0.5"
+                  className="group flex items-center justify-center text-lg font-medium text-white bg-[#D95D39] px-6 py-4 rounded-full transition-all hover:opacity-90 shadow-md hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Let's Talk
                   <motion.svg
                     animate={{ x: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                    className="ml-2 w-5 h-5 text-[#F08A6D]"
+                    className="ml-2 w-5 h-5 text-white/90"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
