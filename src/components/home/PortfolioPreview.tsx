@@ -94,10 +94,10 @@ export function PortfolioPreview() {
           <div className="flex items-center gap-4 mb-6">
             <div className="w-8 sm:w-16 h-[2px] bg-[#D95D39]"></div>
             <span className="uppercase tracking-widest text-sm font-semibold text-[#D95D39]">Featured Works</span>
+            <div className="flex-1 h-px bg-gray-200 ml-4 hidden sm:block" />
           </div>
 
           {/* Main Indented Content */}
-          <div className="flex-1 h-px bg-gray-200 ml-4 hidden sm:block" />
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
             Curated Spaces
           </h2>

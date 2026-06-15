@@ -11,7 +11,7 @@ const SHAPES = [
     id: 'arch',
     src: lan1,
     alt: 'Architectural details',
-    className: 'absolute left-[5%] sm:left-[10%] top-[10%] sm:top-[15%] w-[50%] sm:w-[45%] aspect-[2/3] rounded-t-full rounded-b-2xl',
+    className: 'absolute left-[5%] top-[10%] w-[50%] aspect-[2/3] rounded-t-full rounded-b-2xl',
     floatDelay: 0,
     zIndex: 10,
   },
@@ -20,7 +20,7 @@ const SHAPES = [
     id: 'circle',
     src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80',
     alt: 'Living room detail',
-    className: 'absolute right-[5%] sm:right-[15%] top-[5%] w-[40%] sm:w-[35%] aspect-square rounded-full',
+    className: 'absolute right-[5%] top-[5%] w-[40%] aspect-square rounded-full',
     floatDelay: 1.5,
     zIndex: 20,
   },
@@ -29,7 +29,7 @@ const SHAPES = [
     id: 'pill',
     src: lan2,
     alt: 'Texture and material',
-    className: 'absolute right-[15%] sm:right-[25%] bottom-[5%] w-[35%] sm:w-[30%] aspect-[1/2] rounded-full',
+    className: 'absolute right-[15%] bottom-[5%] w-[35%] aspect-[1/2] rounded-full',
     floatDelay: 3,
     zIndex: 30,
   }
@@ -44,7 +44,7 @@ export function HeroImages() {
       className="relative mx-auto w-full max-w-4xl px-4 sm:px-6 pb-20 sm:pb-32 mt-4 sm:mt-8"
     >
       {/* Container that maintains a nice aspect ratio for the cluster to float within */}
-      <div className="relative w-full aspect-square sm:aspect-4/3 md:aspect-video bg-transparent group">
+      <div className="relative w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto aspect-square bg-transparent group">
         {SHAPES.map((shape, i) => (
           <motion.div
             key={shape.id}

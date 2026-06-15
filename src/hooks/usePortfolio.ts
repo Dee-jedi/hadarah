@@ -43,7 +43,6 @@ export function usePortfolio() {
       setLoading(true);
       const q = query(
         collection(db, 'portfolio'),
-        orderBy('order', 'asc'),
         limit(BATCH_SIZE)
       );
       const snapshot = await getDocs(q);
@@ -82,7 +81,6 @@ export function usePortfolio() {
       setLoadingMore(true);
       const q = query(
         collection(db, 'portfolio'),
-        orderBy('order', 'asc'),
         startAfter(lastVisible),
         limit(BATCH_SIZE)
       );

@@ -4,20 +4,27 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useShopStore } from '@/store/useShopStore';
 
 const navLinks = [
   { name: 'Home', href: '/' },
-
   { name: 'Why Us', href: '/why-us' },
-
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Services', href: '/services' },
+  { name: 'Shop', href: '/shop' },
+  { name: 'Procurement', href: '/procurement', desktopOnly: true },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Hydration safety for Zustand persist
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => { setIsClient(true); }, []);
+
+  const cartCount = useShopStore((state) => state.cartIds.length);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +54,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-xs py-4' : 'bg-transparent py-6'
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 md:border-none border-b border-gray-200/20 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-xs py-4 border-gray-200' : 'bg-transparent py-6'
           }`}
       >
         <div className="mx-auto max-w-7xl px-6 md:px-12 flex items-center justify-between">
@@ -89,33 +96,79 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link
+              href="/shop/cart"
+              className={`relative flex items-center justify-center transition-colors hover:scale-105 active:scale-95 ${isDarkHero ? 'text-white hover:text-gray-200' : 'text-[#111111] hover:text-[#D95D39]'}`}
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <AnimatePresence>
+                {isClient && cartCount > 0 && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#D95D39] text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-sm"
+                  >
+                    {cartCount}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Link>
+
             <Link
               href="/contact"
-              className="text-sm font-medium text-white bg-[#111111] px-5 py-2.5 rounded-full transition-all hover:bg-[#D95D39] hover:shadow-lg hover:shadow-orange-500/20 active:scale-95"
+              className="text-sm font-medium text-white bg-[#D95D39] px-5 py-2.5 rounded-full transition-all hover:bg-[#111111] hover:shadow-lg active:scale-95"
             >
               Let's Talk
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="relative z-50 md:hidden w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            <div className="w-5 flex flex-col justify-center items-end gap-1.5">
-              <span
-                className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 rotate-45 translate-y-[4px]' : 'w-5'
-                  }`}
-              />
-              <span
-                className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 -rotate-45 translate-y-[-4px]' : 'w-4'
-                  }`}
-              />
-            </div>
-          </button>
+          {/* Mobile Actions (Cart + Menu) */}
+          <div className="flex items-center gap-3 md:hidden">
+            {/* Mobile Cart */}
+            <Link
+              href="/shop/cart"
+              className="relative z-50 w-11 h-11 flex items-center justify-center bg-white rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all"
+            >
+              <svg className="w-5 h-5 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <AnimatePresence>
+                {isClient && cartCount > 0 && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="absolute -top-1 -right-1 w-5 h-5 bg-[#D95D39] text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm"
+                  >
+                    {cartCount}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Link>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              className="relative z-50 w-11 h-11 flex items-center justify-center bg-white rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              <div className="w-5 flex flex-col justify-center items-end gap-1.5">
+                <span
+                  className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 rotate-45 translate-y-[4px]' : 'w-5'
+                    }`}
+                />
+                <span
+                  className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 -rotate-45 translate-y-[-4px]' : 'w-4'
+                    }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -165,7 +218,7 @@ export function Navbar() {
               </div>
 
               <nav className="flex flex-col gap-6 text-2xl font-medium tracking-tight">
-                {navLinks.map((link) => (
+                {navLinks.filter(link => !link.desktopOnly).map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
