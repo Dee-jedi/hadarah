@@ -49,7 +49,7 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const isDarkHero = (pathname === '/why-us' || pathname === '/services') && !scrolled;
+  const isDarkHero = (pathname === '/why-us' || pathname === '/services' || pathname === '/procurement') && !scrolled;
 
   return (
     <>
@@ -60,7 +60,7 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2 group">
-            <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12 ${pathname === '/why-us' && !scrolled ? 'bg-white' : 'bg-[#D95D39]'}`}>
+            <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12 ${pathname === '/why-us' && !scrolled ? 'bg-white' : 'bg-[#C5A059]'}`}>
               <span className={`font-bold text-xl leading-none ${pathname === '/why-us' && !scrolled ? 'text-[#111111]' : 'text-white'}`}>H</span>
             </div>
             <span className={`font-bold text-xl tracking-wide transition-colors ${isDarkHero ? 'text-white' : 'text-[#111111]'}`}>
@@ -73,8 +73,8 @@ export function Navbar() {
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
 
-              let textColorClass = 'text-gray-600 hover:text-[#D95D39]';
-              if (isActive) textColorClass = 'text-[#D95D39]';
+              let textColorClass = 'text-gray-600 hover:text-[#C5A059]';
+              if (isActive) textColorClass = 'text-[#C5A059]';
               else if (isDarkHero) textColorClass = 'text-white/80 hover:text-white';
 
               return (
@@ -87,7 +87,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#D95D39]"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C5A059]"
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -100,7 +100,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/shop/cart"
-              className={`relative flex items-center justify-center transition-colors hover:scale-105 active:scale-95 ${isDarkHero ? 'text-white hover:text-gray-200' : 'text-[#111111] hover:text-[#D95D39]'}`}
+              className={`relative flex items-center justify-center transition-colors hover:scale-105 active:scale-95 ${isDarkHero ? 'text-white hover:text-gray-200' : 'text-[#111111] hover:text-[#C5A059]'}`}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -111,7 +111,7 @@ export function Navbar() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
-                    className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#D95D39] text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-sm"
+                    className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#C5A059] text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-sm"
                   >
                     {cartCount}
                   </motion.div>
@@ -121,7 +121,7 @@ export function Navbar() {
 
             <Link
               href="/contact"
-              className="text-sm font-medium text-white bg-[#D95D39] px-5 py-2.5 rounded-full transition-all hover:bg-[#111111] hover:shadow-lg active:scale-95"
+              className="text-sm font-medium text-white bg-[#C5A059] px-5 py-2.5 rounded-full transition-all hover:bg-[#111111] hover:shadow-lg active:scale-95"
             >
               Let's Talk
             </Link>
@@ -143,7 +143,7 @@ export function Navbar() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
-                    className="absolute -top-1 -right-1 w-5 h-5 bg-[#D95D39] text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm"
+                    className="absolute -top-1 -right-1 w-5 h-5 bg-[#C5A059] text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm"
                   >
                     {cartCount}
                   </motion.div>
@@ -159,11 +159,11 @@ export function Navbar() {
             >
               <div className="w-5 flex flex-col justify-center items-end gap-1.5">
                 <span
-                  className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 rotate-45 translate-y-[4px]' : 'w-5'
+                  className={`h-0.5 bg-[#C5A059] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 rotate-45 translate-y-[4px]' : 'w-5'
                     }`}
                 />
                 <span
-                  className={`h-0.5 bg-[#D95D39] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 -rotate-45 translate-y-[-4px]' : 'w-4'
+                  className={`h-0.5 bg-[#C5A059] rounded-full transform transition-all duration-300 ${mobileMenuOpen ? 'w-5 -rotate-45 translate-y-[-4px]' : 'w-4'
                     }`}
                 />
               </div>
@@ -197,7 +197,7 @@ export function Navbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between mb-12">
                 <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
-                  <div className="w-8 h-8 bg-[#D95D39] flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12">
+                  <div className="w-8 h-8 bg-[#C5A059] flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12">
                     <span className="text-white font-bold text-xl leading-none">H</span>
                   </div>
                   <span className="text-[#111111] font-bold text-xl tracking-wide">
@@ -223,7 +223,7 @@ export function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`transition-colors ${pathname === link.href ? 'text-[#D95D39]' : 'text-gray-900 hover:text-[#D95D39]'}`}
+                    className={`transition-colors ${pathname === link.href ? 'text-[#C5A059]' : 'text-gray-900 hover:text-[#C5A059]'}`}
                   >
                     {link.name}
                   </Link>
@@ -234,7 +234,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group flex items-center justify-center text-lg font-medium text-white bg-[#D95D39] px-6 py-4 rounded-full transition-all hover:opacity-90 shadow-md hover:shadow-xl hover:-translate-y-0.5"
+                  className="group flex items-center justify-center text-lg font-medium text-white bg-[#C5A059] px-6 py-4 rounded-full transition-all hover:opacity-90 shadow-md hover:shadow-xl hover:-translate-y-0.5"
                 >
                   Let's Talk
                   <motion.svg

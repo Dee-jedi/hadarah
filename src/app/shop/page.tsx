@@ -55,11 +55,11 @@ function ProductCard({ product, getAspectRatioClass }: { product: Product, getAs
           <div className="absolute top-3 left-3 right-3 flex justify-between items-start pointer-events-none z-20">
             {/* Wishlist (Left) */}
             <button
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#D95D39] transition-colors pointer-events-auto shadow-sm"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-red-500 transition-colors pointer-events-auto shadow-sm"
               onClick={handleToggleWishlist}
             >
               <svg 
-                className={`w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 ${isWishlisted ? 'fill-current text-[#D95D39] scale-110' : ''}`} 
+                className={`w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 ${isWishlisted ? 'fill-current text-red-500 scale-110' : ''}`} 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -71,7 +71,7 @@ function ProductCard({ product, getAspectRatioClass }: { product: Product, getAs
             {/* Add to Cart (Right) */}
             <button
               className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-sm ${
-                addedToCart ? 'bg-[#D95D39] text-white rotate-[360deg]' : 'bg-white/20 text-white hover:bg-[#D95D39]'
+                addedToCart ? 'bg-[#C5A059] text-white rotate-[360deg]' : 'bg-white/20 text-white hover:bg-[#C5A059]'
               }`}
               onClick={handleAddToCart}
             >
@@ -92,7 +92,7 @@ function ProductCard({ product, getAspectRatioClass }: { product: Product, getAs
             <h3 className="text-sm sm:text-lg font-bold leading-tight mb-1 group-hover:text-white truncate">
               {product.name}
             </h3>
-            <p className="text-sm sm:text-md font-medium text-[#D95D39]">{product.price}</p>
+            <p className="text-sm sm:text-md font-medium text-[#C5A059]">{product.price}</p>
           </div>
         </div>
       </Link>
@@ -146,7 +146,7 @@ export default function ShopPage() {
                 placeholder="Search premium products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white border border-gray-200 text-gray-900 px-5 py-3 md:px-6 md:py-4 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D95D39] focus:border-transparent transition-all"
+                className="w-full bg-white border border-gray-200 text-gray-900 px-5 py-3 md:px-6 md:py-4 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059] focus:border-transparent transition-all"
               />
               <div className="absolute right-5 md:right-6 top-1/2 -translate-y-1/2 text-gray-400">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -158,7 +158,7 @@ export default function ShopPage() {
             {/* Wishlist Link */}
             <Link
               href="/shop/wishlist"
-              className="relative shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white border border-gray-200 rounded-full shadow-sm flex items-center justify-center text-gray-600 hover:text-[#D95D39] hover:border-[#D95D39] transition-all"
+              className="relative shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white border border-gray-200 rounded-full shadow-sm flex items-center justify-center text-gray-600 hover:text-[#C5A059] hover:border-[#C5A059] transition-all"
             >
               <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -170,7 +170,7 @@ export default function ShopPage() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
-                    className="absolute -top-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-[#D95D39] text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center shadow-sm border-2 border-white"
+                    className="absolute -top-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-[#C5A059] text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center shadow-sm border-2 border-white"
                   >
                     {wishlistCount}
                   </motion.div>
@@ -207,23 +207,42 @@ export default function ShopPage() {
       <div className="max-w-7xl mx-auto px-4 mb-8 md:hidden">
         <Link
           href="/procurement"
-          className="relative group flex flex-col w-full bg-linear-to-br from-[#b34728] via-[#8c351c] to-[#5e2110] bg-size-[400%_400%] animate-gradient-xy rounded-3xl p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+          className="relative group flex flex-col w-full min-h-[160px] rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
         >
-          <div className="relative z-10 flex items-center gap-2 mb-3">
-            <span className="flex h-2 w-2 rounded-full bg-white opacity-90 animate-pulse"></span>
-            <span className="text-[10px] font-bold tracking-widest uppercase text-white/90">
-              For Developers & Owners
-            </span>
+          {/* Background Image & Overlays */}
+          <div 
+            className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+            style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80)' }}
+          >
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
           </div>
-          <h2 className="relative z-10 text-xl font-bold text-white mb-2 leading-tight">Hotel Setup Packages</h2>
-          <p className="relative z-10 text-white/80 text-sm mb-5">Bulk procurement for 20-200+ rooms.</p>
 
-          <div className="relative z-10 flex items-center gap-3 text-sm font-semibold text-white">
-            Request Quotation
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-[#8c351c] transition-colors">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+          {/* Content Wrapper */}
+          <div className="relative z-10 flex flex-col h-full justify-between">
+            {/* Top Section */}
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                <span className="flex h-1.5 w-1.5 rounded-full bg-[#C5A059] animate-pulse"></span>
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/90">
+                  B2B Solutions
+                </span>
+              </div>
+              <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-[#C5A059] group-hover:border-[#C5A059] transition-all duration-300">
+                <svg className="w-4 h-4 text-white transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="mt-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-1.5 leading-tight drop-shadow-md">
+                Hotel Setup Packages
+              </h2>
+              <p className="text-white/80 text-sm font-medium drop-shadow-sm">
+                Bulk procurement for 20-200+ rooms.
+              </p>
             </div>
           </div>
         </Link>

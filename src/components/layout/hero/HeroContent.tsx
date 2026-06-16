@@ -83,7 +83,7 @@ export function HeroContent() {
       >
         <Link
           href="/portfolio"
-          className="group inline-flex flex-1 max-w-[200px] min-w-[130px] whitespace-nowrap items-center justify-center h-11 sm:h-12 px-4 sm:px-8 text-[13px] sm:text-[15px] font-medium text-white bg-[#D95D39] rounded-full transition-all duration-200 hover:bg-[#B84D2F] hover:shadow-lg hover:shadow-orange-500/20 active:scale-[0.97]"
+          className="group inline-flex flex-1 max-w-[200px] min-w-[130px] whitespace-nowrap items-center justify-center h-11 sm:h-12 px-4 sm:px-8 text-[13px] sm:text-[15px] font-medium text-white bg-[#C5A059] rounded-full transition-all duration-200 hover:bg-[#A68241] hover:shadow-lg hover:shadow-orange-500/20 active:scale-[0.97]"
         >
           View Portfolio
           <svg
@@ -102,10 +102,10 @@ export function HeroContent() {
         </Link>
 
         <Link
-          href="/contact"
-          className="group inline-flex flex-1 max-w-[200px] min-w-[130px] whitespace-nowrap items-center justify-center h-11 sm:h-12 px-4 sm:px-8 text-[13px] sm:text-[15px] font-medium text-[#D95D39] bg-white border-[1.5px] border-[#D95D39] rounded-full transition-all duration-200 hover:bg-orange-50 active:scale-[0.97]"
+          href="/shop"
+          className="group inline-flex flex-1 max-w-[200px] min-w-[130px] whitespace-nowrap items-center justify-center h-11 sm:h-12 px-4 sm:px-8 text-[13px] sm:text-[15px] font-medium text-[#C5A059] bg-white border-[1.5px] border-[#C5A059] rounded-full transition-all duration-200 hover:bg-orange-50 active:scale-[0.97]"
         >
-          Book Consult
+          Explore Shop
           <svg
             className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-1"
             fill="none"

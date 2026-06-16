@@ -59,10 +59,10 @@ ${formData.details || 'No additional details provided.'}`;
               required
               value={formData.name}
               onChange={handleChange}
-              className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#D95D39] focus:outline-none transition-colors"
+              className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#C5A059] focus:outline-none transition-colors"
               placeholder="Full Name"
             />
-            <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#D95D39] uppercase tracking-wider font-medium">
+            <label htmlFor="name" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#C5A059] uppercase tracking-wider font-medium">
               Full Name *
             </label>
           </div>
@@ -74,10 +74,10 @@ ${formData.details || 'No additional details provided.'}`;
               required
               value={formData.email}
               onChange={handleChange}
-              className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#D95D39] focus:outline-none transition-colors"
+              className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#C5A059] focus:outline-none transition-colors"
               placeholder="Email Address"
             />
-            <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#D95D39] uppercase tracking-wider font-medium">
+            <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#C5A059] uppercase tracking-wider font-medium">
               Email Address *
             </label>
           </div>
@@ -90,7 +90,7 @@ ${formData.details || 'No additional details provided.'}`;
             required
             value={formData.service}
             onChange={handleChange}
-            className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#D95D39] focus:outline-none transition-colors appearance-none font-light ${formData.service ? 'text-gray-900' : 'text-gray-400'}`}
+            className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#C5A059] focus:outline-none transition-colors appearance-none font-light ${formData.service ? 'text-gray-900' : 'text-gray-400'}`}
           >
             <option value="" disabled>Select Service *</option>
             <option value="Interior Design" className="text-gray-900">Interior Design</option>
@@ -115,7 +115,7 @@ ${formData.details || 'No additional details provided.'}`;
               required
               value={formData.date}
               onChange={handleChange}
-              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#D95D39] focus:outline-none transition-colors font-light ${formData.date ? 'text-gray-900' : 'text-gray-400'}`}
+              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#C5A059] focus:outline-none transition-colors font-light ${formData.date ? 'text-gray-900' : 'text-gray-400'}`}
             />
             <label htmlFor="date" className="absolute left-0 -top-4 text-xs text-gray-500 uppercase tracking-wider font-medium">
               Preferred Date *
@@ -129,7 +129,7 @@ ${formData.details || 'No additional details provided.'}`;
               required
               value={formData.time}
               onChange={handleChange}
-              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#D95D39] focus:outline-none transition-colors font-light ${formData.time ? 'text-gray-900' : 'text-gray-400'}`}
+              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#C5A059] focus:outline-none transition-colors font-light ${formData.time ? 'text-gray-900' : 'text-gray-400'}`}
             />
             <label htmlFor="time" className="absolute left-0 -top-4 text-xs text-gray-500 uppercase tracking-wider font-medium">
               Preferred Time *
@@ -142,7 +142,7 @@ ${formData.details || 'No additional details provided.'}`;
               required
               value={formData.meetingType}
               onChange={handleChange}
-              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#D95D39] focus:outline-none transition-colors appearance-none font-light ${formData.meetingType ? 'text-gray-900' : 'text-gray-400'}`}
+              className={`w-full border-b border-gray-200 bg-transparent py-3 focus:border-[#C5A059] focus:outline-none transition-colors appearance-none font-light ${formData.meetingType ? 'text-gray-900' : 'text-gray-400'}`}
             >
               <option value="" disabled>Meeting Type *</option>
               <option value="Physical Meeting" className="text-gray-900">Physical Meeting</option>
@@ -164,10 +164,10 @@ ${formData.details || 'No additional details provided.'}`;
             rows={4}
             value={formData.details}
             onChange={handleChange}
-            className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#D95D39] focus:outline-none transition-colors resize-none"
+            className="peer w-full border-b border-gray-200 bg-transparent py-3 text-gray-900 placeholder-transparent focus:border-[#C5A059] focus:outline-none transition-colors resize-none"
             placeholder="Project Details"
           />
-          <label htmlFor="details" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#D95D39] uppercase tracking-wider font-medium">
+          <label htmlFor="details" className="absolute left-0 -top-3.5 text-xs text-gray-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#C5A059] uppercase tracking-wider font-medium">
             Additional Notes or Project Details
           </label>
         </div>
@@ -176,7 +176,7 @@ ${formData.details || 'No additional details provided.'}`;
         <div className="mt-4 flex justify-center">
           <button 
             type="submit"
-            className="group inline-flex items-center justify-center w-full sm:w-auto px-12 py-4 text-[15px] font-medium text-white bg-[#D95D39] hover:bg-[#B84D2F] transition-all rounded-full shadow-lg hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-1"
+            className="group inline-flex items-center justify-center w-full sm:w-auto px-12 py-4 text-[15px] font-medium text-white bg-[#C5A059] hover:bg-[#A68241] transition-all rounded-full shadow-lg hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-1"
           >
             Confirm Booking
             <svg

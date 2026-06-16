@@ -100,7 +100,7 @@ export default function PortfolioPage() {
             {/* Infinite Scroll Trigger / Spinner */}
             <div ref={ref} className="w-full py-16 flex justify-center items-center h-24">
               {loadingMore && (
-                <div className="w-8 h-8 border-4 border-gray-200 border-t-[#D95D39] rounded-full animate-spin" />
+                <div className="w-8 h-8 border-4 border-gray-200 border-t-[#C5A059] rounded-full animate-spin" />
               )}
               {!hasMore && images.length > 0 && (
                 <p className="text-gray-400 text-sm italic">You have reached the end of the gallery.</p>
@@ -123,7 +123,7 @@ export default function PortfolioPage() {
             {/* Close Button */}
             <button
               onClick={(e) => { e.stopPropagation(); setSelectedMedia(null); }}
-              className="absolute top-6 right-6 text-white hover:text-[#D95D39] transition-colors z-50 p-2"
+              className="absolute top-6 right-6 text-white hover:text-[#C5A059] transition-colors z-50 p-2"
               aria-label="Close modal"
             >
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

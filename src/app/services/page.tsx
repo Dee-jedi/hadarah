@@ -66,7 +66,7 @@ const categories = [
 
 export default function ServicesPage() {
   return (
-    <main className="flex-1 bg-white min-h-screen selection:bg-[#D95D39] selection:text-white">
+    <main className="flex-1 bg-white min-h-screen selection:bg-[#C5A059] selection:text-white">
 
       {/* Editorial Hero Section */}
       <section className="relative h-[60vh] sm:h-[80vh] w-full flex items-center justify-center overflow-hidden pt-20">
@@ -147,11 +147,11 @@ export default function ServicesPage() {
                   className="w-full lg:w-2/5 flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#D95D39]" />
-                    <span className="text-sm font-semibold tracking-widest text-[#D95D39]">{service.id}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+                    <span className="text-sm font-semibold tracking-widest text-[#C5A059]">{service.id}</span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-6 group-hover:text-[#D95D39] transition-colors duration-500">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-6 group-hover:text-[#C5A059] transition-colors duration-500">
                     {service.name}
                   </h2>
 
@@ -161,13 +161,13 @@ export default function ServicesPage() {
 
                   <Link 
                     href="/contact" 
-                    className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-gray-900 hover:text-[#D95D39] transition-colors w-fit group/btn"
+                    className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-gray-900 hover:text-[#C5A059] transition-colors w-fit group/btn"
                   >
                     <span>Consult With Us</span>
                     <motion.svg
                       animate={{ x: [0, 5, 0] }}
                       transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                      className="w-5 h-5 transition-colors duration-300 group-hover/btn:text-[#D95D39]"
+                      className="w-5 h-5 transition-colors duration-300 group-hover/btn:text-[#C5A059]"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -187,7 +187,7 @@ export default function ServicesPage() {
       {/* Dark Theme Categories Section */}
       <section className="bg-[#111111] py-32 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
         {/* Subtle background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-[#D95D39]/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-[#C5A059]/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start lg:items-center">
 
@@ -198,8 +198,8 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center justify-center px-4 py-1.5 border border-[#D95D39]/30 rounded-full mb-6 bg-[#D95D39]/5">
-                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-[#D95D39]">
+              <div className="inline-flex items-center justify-center px-4 py-1.5 border border-[#C5A059]/30 rounded-full mb-6 bg-[#C5A059]/5">
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-[#C5A059]">
                   Sectors
                 </span>
               </div>
@@ -226,7 +226,7 @@ export default function ServicesPage() {
                   <span className="text-xl sm:text-2xl font-light text-gray-300 group-hover:text-white transition-colors duration-300">
                     {category}
                   </span>
-                  <span className="text-[#D95D39] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                  <span className="text-[#C5A059] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

@@ -22,7 +22,7 @@ export function Footer() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white bg-[#D95D39] rounded-full transition-all hover:bg-[#B84D2F] hover:shadow-xl hover:-translate-y-1"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white bg-[#C5A059] rounded-full transition-all hover:bg-[#A68241] hover:shadow-xl hover:-translate-y-1"
           >
             Let's Talk
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
@@ -35,14 +35,14 @@ export function Footer() {
       {/* Footer Bottom */}
       <div className="border-t border-gray-200 py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-[#111111] flex items-center justify-center rounded-sm">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-[#C5A059] flex items-center justify-center rounded-sm transition-transform group-hover:rotate-12">
               <span className="text-white font-bold text-xl leading-none">H</span>
             </div>
             <span className="text-[#111111] font-bold text-xl tracking-wide">
-              Hadarah<span className="text-[#D95D39]">.</span>
+              Hadarah.
             </span>
-          </div>
+          </Link>
           
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Hadarah Interiors. All rights reserved.

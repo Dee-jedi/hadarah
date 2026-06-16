@@ -42,13 +42,13 @@ export default function WishlistPage() {
             {/* Elegant Empty State Icon */}
             <div className="relative mb-10 group cursor-pointer">
               <div className="w-28 h-28 bg-[#fafafa] rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                <svg className="w-12 h-12 text-gray-300 group-hover:text-[#D95D39] transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-12 h-12 text-gray-300 group-hover:text-[#C5A059] transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
               {/* Decorative accent */}
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <div className="w-3 h-3 bg-[#D95D39] rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-[#C5A059] rounded-full animate-pulse"></div>
               </div>
             </div>
 
@@ -59,7 +59,7 @@ export default function WishlistPage() {
 
             <Link 
               href="/shop"
-              className="bg-[#111111] text-white px-10 py-5 rounded-full font-semibold text-sm tracking-widest uppercase hover:bg-[#D95D39] hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+              className="bg-[#111111] text-white px-10 py-5 rounded-full font-semibold text-sm tracking-widest uppercase hover:bg-[#C5A059] hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
             >
               Explore the Store
             </Link>
@@ -98,10 +98,10 @@ export default function WishlistPage() {
                     <div className="flex justify-between items-start">
                       {/* Product Text */}
                       <Link href={`/shop/${product.id}`} className="block pr-8 sm:pr-0">
-                        <h3 className="text-sm sm:text-lg font-bold text-gray-900 leading-tight mb-2 group-hover:text-[#D95D39] transition-colors mt-1">
+                        <h3 className="text-sm sm:text-lg font-bold text-gray-900 leading-tight mb-2 group-hover:text-[#C5A059] transition-colors mt-1">
                           {product.name}
                         </h3>
-                        <p className="text-sm sm:text-base font-medium text-[#D95D39]">{product.price}</p>
+                        <p className="text-sm sm:text-base font-medium text-[#C5A059]">{product.price}</p>
                       </Link>
 
                       {/* Remove Button (X) */}
@@ -122,7 +122,7 @@ export default function WishlistPage() {
                     {/* Move to Cart Action */}
                     <div className="mt-auto pt-4 flex items-center justify-between sm:justify-end gap-4 w-full">
                       <button
-                        className="w-full sm:w-auto bg-[#D95D39] text-white text-xs font-semibold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-[#111111] hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
+                        className="w-full sm:w-auto bg-[#C5A059] text-white text-xs font-semibold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-[#111111] hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
                         onClick={(e) => {
                           e.preventDefault();
                           alert('Moved to cart!');

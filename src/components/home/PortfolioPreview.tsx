@@ -24,11 +24,10 @@ export function PortfolioPreview() {
   useEffect(() => {
     const fetchPreviewImages = async () => {
       try {
-        // Fetch a small set of images, skipping videos, ordered by position
+        // Fetch a larger set of images so we can shuffle and pick a random subset
         const q = query(
           collection(db, 'portfolio'),
-          orderBy('order', 'asc'),
-          limit(30) // Fetch more than we need so we can filter out videos
+          limit(50) 
         );
         const snapshot = await getDocs(q);
         
@@ -38,11 +37,15 @@ export function PortfolioPreview() {
           fileName: doc.data().fileName,
         }));
 
-        // Filter to only actual images (no .mp4), take PREVIEW_COUNT
+        // Filter to only actual images (no .mp4)
         const photoOnly = allImages.filter(
           img => !img.fileName.toLowerCase().endsWith('.mp4')
         );
-        setImages(photoOnly.slice(0, PREVIEW_COUNT));
+        
+        // Shuffle the array randomly
+        const shuffled = [...photoOnly].sort(() => 0.5 - Math.random());
+        
+        setImages(shuffled.slice(0, PREVIEW_COUNT));
       } catch (error) {
         console.error('Error fetching preview images:', error);
       } finally {
@@ -92,8 +95,8 @@ export function PortfolioPreview() {
         >
           {/* Overtitle with Line */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-8 sm:w-16 h-[2px] bg-[#D95D39]"></div>
-            <span className="uppercase tracking-widest text-sm font-semibold text-[#D95D39]">Featured Works</span>
+            <div className="w-8 sm:w-16 h-[2px] bg-[#C5A059]"></div>
+            <span className="uppercase tracking-widest text-sm font-semibold text-[#C5A059]">Featured Works</span>
             <div className="flex-1 h-px bg-gray-200 ml-4 hidden sm:block" />
           </div>
 
@@ -160,7 +163,7 @@ export function PortfolioPreview() {
           <span className="w-8 sm:w-16 h-px bg-gray-300 relative">
             {/* Active progress line overlay */}
             <span
-              className="absolute top-0 left-0 h-px bg-[#D95D39] transition-all duration-300"
+              className="absolute top-0 left-0 h-px bg-[#C5A059] transition-all duration-300"
               style={{ width: `${((activeIndex + 1) / Math.max(images.length, 1)) * 100}%` }}
             />
           </span>
@@ -170,14 +173,14 @@ export function PortfolioPreview() {
         {/* Minimalist Explore Link */}
         <Link
           href="/portfolio"
-          className="group flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-gray-900 transition-colors hover:text-[#D95D39]"
+          className="group flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-gray-900 transition-colors hover:text-[#C5A059]"
         >
           <span className="hidden sm:inline">Explore Portfolio</span>
           <span className="sm:hidden">Explore</span>
           <motion.svg
             animate={{ x: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-5 h-5 sm:w-6 sm:h-6 text-[#D95D39] sm:text-gray-900 sm:group-hover:text-[#D95D39] transition-colors"
+            className="w-5 h-5 sm:w-6 sm:h-6 text-[#C5A059] sm:text-gray-900 sm:group-hover:text-[#C5A059] transition-colors"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

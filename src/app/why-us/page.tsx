@@ -50,11 +50,11 @@ export default function WhyUsPage() {
           className="relative z-10 text-center px-6 max-w-5xl mx-auto mt-16 sm:mt-0"
         >
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="h-px w-8 sm:w-16 bg-[#D95D39]" />
-            <h2 className="text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase text-[#D95D39]">
+            <span className="h-px w-8 sm:w-16 bg-[#C5A059]" />
+            <h2 className="text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase text-[#C5A059]">
               The Manifesto
             </h2>
-            <span className="h-px w-8 sm:w-16 bg-[#D95D39]" />
+            <span className="h-px w-8 sm:w-16 bg-[#C5A059]" />
           </div>
 
           <h1 className="text-4xl sm:text-7xl lg:text-8xl font-light tracking-tighter text-white leading-[1.1]">
@@ -136,7 +136,7 @@ export default function WhyUsPage() {
               >
                 <path
                   d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
-                  stroke="#D95D39"
+                  stroke="#C5A059"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
@@ -171,7 +171,7 @@ export default function WhyUsPage() {
               </div>
 
               {/* The Dot on the Line */}
-              <div className="absolute left-[-34px] sm:left-[-52px] top-2.5 w-2 h-2 rounded-full bg-white border border-[#D95D39] ring-4 ring-white z-10" />
+              <div className="absolute left-[-34px] sm:left-[-52px] top-2.5 w-2 h-2 rounded-full bg-white border border-[#C5A059] ring-4 ring-white z-10" />
 
               {/* Content */}
               <div className="pt-1 relative z-20">

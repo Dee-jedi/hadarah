@@ -17,7 +17,7 @@ export default function ProductDetailPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#fafafa]">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-        <button onClick={() => router.push('/shop')} className="text-[#D95D39] hover:underline">
+        <button onClick={() => router.push('/shop')} className="text-[#C5A059] hover:underline">
           Return to Shop
         </button>
       </div>
@@ -30,7 +30,7 @@ export default function ProductDetailPage() {
         
         {/* Breadcrumb */}
         <div className="mb-8 text-sm text-gray-500 flex items-center gap-2">
-          <Link href="/shop" className="hover:text-[#D95D39] transition-colors">Shop</Link>
+          <Link href="/shop" className="hover:text-[#C5A059] transition-colors">Shop</Link>
           <span>/</span>
           <span className="text-gray-900 font-medium">{product.category}</span>
         </div>
@@ -60,7 +60,7 @@ export default function ProductDetailPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-sm font-semibold tracking-[0.2em] text-[#D95D39] uppercase mb-4">
+            <p className="text-sm font-semibold tracking-[0.2em] text-[#C5A059] uppercase mb-4">
               {product.category}
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -81,7 +81,7 @@ export default function ProductDetailPage() {
             {/* Premium Action Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               
-              <button className="sm:col-span-2 flex items-center justify-center gap-3 bg-[#D95D39] text-white py-4 px-6 rounded-xl font-semibold hover:bg-[#111111] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <button className="sm:col-span-2 flex items-center justify-center gap-3 bg-[#C5A059] text-white py-4 px-6 rounded-xl font-semibold hover:bg-[#111111] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
@@ -111,7 +111,7 @@ export default function ProductDetailPage() {
                 In stock and ready for global shipping
               </div>
               <div className="flex items-center gap-4 text-sm text-gray-600">
-                <span className="w-2 h-2 rounded-full bg-[#D95D39]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#C5A059]"></span>
                 Special rates available for 50+ room hotel projects
               </div>
             </div>

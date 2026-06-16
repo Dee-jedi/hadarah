@@ -1,6 +1,8 @@
 import { Hero } from '@/components/layout/Hero';
+import { ServicesPreview } from '@/components/home/ServicesPreview';
 import { Stats } from '@/components/home/Stats';
 import { PortfolioPreview } from '@/components/home/PortfolioPreview';
+import { ProcurementPreview } from '@/components/home/ProcurementPreview';
 import { Testimonials } from '@/components/home/Testimonials';
 
 export default function HomePage() {
@@ -14,6 +16,9 @@ export default function HomePage() {
       </div>
 
       <PortfolioPreview />
+      
+      <ServicesPreview />
+      <ProcurementPreview />
       <Stats />
       <Testimonials />
     </main>
