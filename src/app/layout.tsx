@@ -14,8 +14,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Hadarah | Premium Interior Design',
-  description: 'Transforming spaces into beautiful experiences.',
+  title: 'Hadarah | Luxury Interior Design & Procurement in Kwara State',
+  description: 'Hadarah is a premium interior design, space planning, and hospitality procurement firm based in Kwara State, Nigeria. We transform residential and commercial spaces into breathtaking experiences.',
+  keywords: ['Interior Design Kwara State', 'Luxury Furniture Ilorin', 'Hospitality Procurement Nigeria', 'Architectural Design Kwara', 'Hadarah Interiors', 'B2B Hotel Setup'],
+  openGraph: {
+    title: 'Hadarah | Premium Interior Design',
+    description: 'Transforming spaces into beautiful experiences across Kwara State and beyond.',
+    url: 'https://hadarah.com',
+    siteName: 'Hadarah',
+    images: [
+      {
+        url: '/images/og-image.png', // Note: We need to upload this image to the public folder
+        width: 1200,
+        height: 630,
+        alt: 'Hadarah Interior Design Portfolio',
+      },
+    ],
+    locale: 'en_NG',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hadarah | Premium Interior Design',
+    description: 'Transforming spaces into beautiful experiences across Kwara State and beyond.',
+    images: ['/images/og-image.png'],
+  },
 };
 
 import { FooterWrapper } from '@/components/layout/FooterWrapper';
