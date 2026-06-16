@@ -71,7 +71,7 @@ function ProductCard({ product, getAspectRatioClass }: { product: Product, getAs
             {/* Add to Cart (Right) */}
             <button
               className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-sm ${
-                addedToCart ? 'bg-[#C5A059] text-white rotate-[360deg]' : 'bg-white/20 text-white hover:bg-[#C5A059]'
+                addedToCart ? 'bg-[#C5A059] text-white rotate-360' : 'bg-white/20 text-white hover:bg-[#C5A059]'
               }`}
               onClick={handleAddToCart}
             >

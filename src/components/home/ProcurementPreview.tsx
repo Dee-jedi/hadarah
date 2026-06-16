@@ -55,19 +55,19 @@ export function ProcurementPreview() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="grid grid-cols-2 gap-4 sm:gap-6"
           >
-            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px]">
+            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-4xl hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px]">
               <h3 className="text-4xl sm:text-5xl font-light text-white mb-3">20<span className="text-[#C5A059]">+</span></h3>
               <p className="text-white/50 text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold">Rooms Min</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px] sm:translate-y-12">
+            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-4xl hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px] sm:translate-y-12">
               <h3 className="text-4xl sm:text-5xl font-light text-white mb-3">100<span className="text-[#C5A059]">%</span></h3>
               <p className="text-white/50 text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold">Turnkey</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px]">
+            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-4xl hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px]">
               <h3 className="text-4xl sm:text-5xl font-light text-white mb-3">Top<span className="text-[#C5A059]">.</span></h3>
               <p className="text-white/50 text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold">Quality</p>
             </div>
-            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px] sm:translate-y-12">
+            <div className="bg-white/5 backdrop-blur-md border border-white/5 p-8 rounded-4xl hover:bg-white/10 transition-all flex flex-col justify-center aspect-square sm:aspect-auto sm:h-[220px] sm:translate-y-12">
               <h3 className="text-4xl sm:text-5xl font-light text-white mb-3">24<span className="text-[#C5A059]">/7</span></h3>
               <p className="text-white/50 text-xs sm:text-sm tracking-[0.2em] uppercase font-semibold">Support</p>
             </div>

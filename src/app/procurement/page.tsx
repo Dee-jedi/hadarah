@@ -182,7 +182,7 @@ export default function ProcurementPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white p-8 md:p-10 rounded-[2rem] shadow-xl border border-gray-100 relative lg:-mt-32 z-20"
+            className="bg-white p-8 md:p-10 rounded-4xl shadow-xl border border-gray-100 relative lg:-mt-32 z-20"
           >
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-[#111111] mb-2">Request Quotation</h2>
