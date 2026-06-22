@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 export function FooterWrapper() {
   const pathname = usePathname();
   
-  if (pathname === '/contact' || pathname === '/portfolio' || pathname.startsWith('/shop')) {
+  if (pathname === '/contact' || pathname === '/portfolio' || pathname.startsWith('/shop') || pathname === '/procurement') {
     return null;
   }
   

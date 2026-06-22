@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 
@@ -8,12 +8,10 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hadarah.com'),
   title: 'Hadarah | Luxury Interior Design & Procurement in Kwara State',
   description: 'Hadarah is a premium interior design, space planning, and hospitality procurement firm based in Kwara State, Nigeria. We transform residential and commercial spaces into breathtaking experiences.',
   keywords: ['Interior Design Kwara State', 'Luxury Furniture Ilorin', 'Hospitality Procurement Nigeria', 'Architectural Design Kwara', 'Hadarah Interiors', 'B2B Hotel Setup'],
@@ -52,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

@@ -52,6 +52,7 @@ export default function PortfolioPage() {
                   loop
                   muted
                   playsInline
+                  crossOrigin="anonymous"
                   className="w-full h-[180px] max-h-[70vh] object-cover"
                 />
               </motion.div>
@@ -79,6 +80,7 @@ export default function PortfolioPage() {
                         loop
                         muted
                         playsInline
+                        crossOrigin="anonymous"
                         className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
@@ -146,6 +148,7 @@ export default function PortfolioPage() {
                   loop
                   controls
                   playsInline
+                  crossOrigin="anonymous"
                   className="max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl"
                 />
               ) : (
